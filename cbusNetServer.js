@@ -2,8 +2,7 @@ var net = require('net');
 
 
 var NET_PORT = 5550;
-var NET_ADDRESS = "localhost";
-
+//var NET_ADDRESS = "localhost";
 
 var clients = [];
 
@@ -12,8 +11,11 @@ var server = net.createServer(function (socket) {
     clients.push(socket);
     console.log('Client Connected to Server');
     socket.on('data', function (data) {
-        broadcast(data.toString(), socket);
-        console.log('Server : ' + data.toString());
+        var outMsg = data.toString().split(";")
+        for (var i = 0; i < outMsg.length - 1; i++) {
+            broadcast(outMsg[i].toString()+';', socket);
+            console.log('Server Broadcast: ' + outMsg[i].toString()+';');
+        }
     });
 
     socket.on('end', function () {

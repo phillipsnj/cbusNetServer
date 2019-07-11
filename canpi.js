@@ -9,7 +9,7 @@ var NET_ADDRESS = "localhost";
 
 var pr1 = 2;
 var pr2 = 3;
-var canId = 00;
+var canId = 0;
 var outHeader = (((pr1*4)+pr2)*128)+canId;
 
 var client = new net.Socket();
