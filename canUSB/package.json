@@ -1,0 +1,9 @@
+{
+  "name": "canUSB",
+  "version": "0.0.2",
+  "private": true,
+  "author": "Nigel Phillips",
+  "scripts": {
+    "start": "node canUSB.js"
+  }
+}
